@@ -30,28 +30,21 @@ const ExchangeRates = ({ baseCurrency }) => {
         fetchRates();
     }, [baseCurrency]);
 
-    return ( <
-        div className = "mb-4"
-        style = {
-            { width: "100%" } } >
-        <
-        h2 className = "mb-4" > Exchange Rates(Base: { baseCurrency.toUpperCase() }) < /h2> <
-        Card className = { "change-card" } >
-        <
-        Card.Body >
-        <
-        ul className = "list-unstyled" > {
-            Object.entries(rates).map(([currency, rate]) => ( <
-                li key = { currency }
-                className = "mb-2" >
-                1 { baseCurrency.toUpperCase() } = { rate } { currency } <
-                /li>
-            ))
-        } <
-        /ul> <
-        /Card.Body> <
-        /Card> <
-        /div>
+    return ( 
+        <div className = "mb-4" style = {{ width: "100%" } } >
+            <h2 className = "mb-4" > Exchange Rates(Base: { baseCurrency.toUpperCase() }) </h2> 
+            <Card className = { "change-card" } >
+                <Card.Body>
+                    <ul className = "list-unstyled" > 
+                        {Object.entries(rates).map(([currency, rate]) => ( 
+                            <li key = { currency } className = "mb-2" >
+                                1 { baseCurrency.toUpperCase() } = { rate } { currency } 
+                            </li>
+                        ))}
+                    </ul> 
+                </Card.Body> 
+            </Card> 
+        </div>
     );
 };
 

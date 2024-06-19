@@ -69,81 +69,61 @@ const CurrencyConverter = () => {
         }
     };
 
-    return ( <
-        Container className = { "change-main" }
-        style = {
-            { display: "flex", justifyContent: "center" }
-        } >
-        <
-        Card className = { "change-card" } >
-        <
-        Row className = "justify-content-center"
-        style = {
-            { display: "flex", justifyContent: "center" }
-        } >
-        <
-        h2 style = {
-            { display: "block" }
-        }
-        className = "mb-4" > Currency Converter < /h2> <
-        Form >
-        <
-        h5 className = "mb-3" > Отдаешь < /h5> <
-        Form.Group className = "mb-3" >
-        <
-        Form.Control as = "select"
-        value = { fromCurrency }
-        onChange = {
-            (e) => setFromCurrency(e.target.value)
-        } > {
-            currencyList.map((currency) => ( <
-                option key = { currency.code }
-                value = { currency.code } > { currency.code } <
-                /option>
-            ))
-        } <
-        /Form.Control> < /
-        Form.Group > <
-        Form.Group className = "mb-3" >
-        <
-        Form.Control type = "text"
-        value = { amount }
-        onChange = { handleAmountChange }
-        placeholder = { `amount` }
-        /> < /
-        Form.Group > <
-        h5 className = "mb-3" > Получаешь < /h5> <
-        Form.Group className = "mb-3" >
-        <
-        Form.Control as = "select"
-        value = { toCurrency }
-        onChange = {
-            (e) => setToCurrency(e.target.value)
-        } > {
-            currencyList.map((currency) => ( <
-                option key = { currency.code }
-                value = { currency.code } > { currency.code } <
-                /option>
-            ))
-        } <
-        /Form.Control> < /
-        Form.Group > <
-        Form.Group className = "mb-3" >
-        <
-        Form.Control type = "text"
-        disabled value = { result }
-        onChange = {
-            (e) => setAmount(e.target.value)
-        }
-        placeholder = { `amount` }
-        /> < /
-        Form.Group > <
-        Button variant = "primary"
-        onClick = { handleConvert } > Convert < /Button> < /
-        Form > <
-        /Row> < /
-        Card > <
-        /Container>
+    return ( 
+        <Container className = { "change-main" } style = {{ display: "flex", justifyContent: "center" }} >
+            <Card className = { "change-card" } >
+            <Row className = "justify-content-center" style = {{ display: "flex", justifyContent: "center" }} >
+                <h2 style = {{ display: "block" }} className = "mb-4" > Currency Converter </h2> 
+                <Form>
+                    <h5 className = "mb-3" > Отдаешь </h5> 
+                    <Form.Group className = "mb-3" >
+                        <Form.Control 
+                            as = "select" 
+                            value = { fromCurrency }
+                            nChange = {(e) => setFromCurrency(e.target.value)} 
+                        > 
+                            {currencyList.map((currency) => ( 
+                                <option key = { currency.code } value = { currency.code } > 
+                                    { currency.code } 
+                                </option>
+                            ))} 
+                        </Form.Control> 
+                    </Form.Group > 
+                    <Form.Group className = "mb-3" >
+                        <Form.Control 
+                        type = "text"
+                        value = { amount }
+                        onChange = { handleAmountChange }
+                        placeholder = { `amount` }
+                        /> 
+                    </Form.Group > 
+                    <h5 className = "mb-3" > Получаешь </h5> 
+                    <Form.Group className = "mb-3" >
+                        <Form.Control 
+                            as = "select"
+                            value = { toCurrency }
+                            onChange = {(e) => setToCurrency(e.target.value)} 
+                        > 
+                            {currencyList.map((currency) => ( 
+                                <option key = { currency.code } value = { currency.code } > 
+                                    { currency.code } 
+                                </option>
+                            ))} 
+                        </Form.Control> 
+                    </Form.Group > 
+                    <Form.Group className = "mb-3" >
+                        <Form.Control 
+                            type = "text"
+                            disabled value = { result }
+                            onChange = {(e) => setAmount(e.target.value)}
+                            placeholder = { `amount` }
+                        /> 
+                    </Form.Group > 
+                    <Button variant = "primary" onClick = { handleConvert } >Convert</Button> 
+                </Form > 
+            </Row> 
+            </Card > 
+        </Container>
     );
 };
 
